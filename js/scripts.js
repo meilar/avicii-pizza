@@ -63,5 +63,16 @@ function Topping(name, price, isVegan) {
   this.isVegan = isVegan;
 }
 
-let pepperoni = new Topping("pepperoni", meatPrice, false);
-let newPizza = new Pizza("lg");
+// UI Logic
+
+function addToBasket() {
+
+}
+
+function removeFromBasket(id) {
+
+}
+
+function refreshBasket {
+
+}

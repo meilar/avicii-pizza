@@ -1,4 +1,4 @@
-#order-start {
+#order-start, #order-finish, #start-over {
   display: flex;
   justify-content: center;
 }
@@ -7,3 +7,4 @@
   display: inline-block;
   min-width: 50%;
 }
+
