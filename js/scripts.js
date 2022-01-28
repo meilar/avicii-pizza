@@ -1,5 +1,8 @@
-// testing code
-let meatPrice = 1;
+// global pricing and ingredient variables
+
+let meatPrice = 4;
+let vegPrice = 2;
+let premPrice = 8;
 
 
 // basket logic
@@ -73,6 +76,27 @@ function removeFromBasket(id) {
 
 }
 
-function refreshBasket {
+function refreshBasket() {
 
 }
+
+$(function() {
+  $("#order-start").click(function() {
+    $("#begin-order").hide();
+    $("#pizza-order").show();
+  })
+  $("#add-btn").click(function() {
+    $("#checkout").show();
+  })
+  $("#clear-btn").click(function() {
+    alert("clear button clicked");
+  })
+  $("#order-finish").click(function() {
+    $("#pizza-order").hide();
+    $("#checkout").hide();
+    $("#thank-you").show();
+  })
+  $("#start-over").click(function() {
+    location.reload(true);
+  })
+});
