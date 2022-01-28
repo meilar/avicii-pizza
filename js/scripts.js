@@ -30,6 +30,15 @@ function Pizza(size) {
   this.id = assignId(false);
   this.size = size;
   this.toppings = [];
+  if (size === "sm") {
+    this.price = 8;
+  } else if (size === "md") {
+    this.price = 10;
+  } else if (size === "lg") {
+    this.price = 12;
+  } else {
+    this.price = 14;
+  }
 }
 
 

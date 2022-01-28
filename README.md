@@ -55,6 +55,11 @@ Code: `let pizza1 = new Pizza("sm");`
 `pizza1;`
 Expected output `"Pizza {id: "101", size: "sm", toppings: Array(0)}"`
 
+Test: "It will add a base price to each pizza when created, based on its size."
+Code: `let newPizza = new Pizza("lg");`
+`newPizza`
+Expected output: `Pizza {id: 101, size: 'lg', toppings: Array(0), price: 12}`
+
 #### Describe: Basket()
 Test: "It will create an object "Basket" that has cx name, cx phone, pickup or delivery, order total, and pizzas in the order."
 Code: `let testBasket = new Basket("Matt", "503-555-5555", false);`
