@@ -51,9 +51,15 @@ Expected output: `101`
 
 #### Describe: Pizza()
 Test: "It will create an object "Pizza" that has an ID, size, and toppings."
-Code: `let pizza1 = new Pizza(sm);`
-`console.log(pizza);`
-Expected output `"Pizza {id: "101", size: "sm", toppings: []}"`
+Code: `let pizza1 = new Pizza("sm");`
+`pizza1;`
+Expected output `"Pizza {id: "101", size: "sm", toppings: Array(0)}"`
+
+#### Describe: Basket()
+Test: "It will create an object "Basket" that has cx name, cx phone, pickup or delivery, order total, and pizzas in the order."
+Code: `let testBasket = new Basket("Matt", "503-555-5555", false);`
+`testBasket;`
+Expected output `"Basket {name: "Matt", phone: "503-555-5555", isDelivery: false, pizzas: Array(0), orderTotal: 0}"`
 
 ## Acknowledgements
 
