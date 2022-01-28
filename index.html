@@ -11,7 +11,27 @@
 </head>
 <body>
   <div class="container">
-    <h1>Welcome to Avicii's Pizza</h1>
+    <div id="intro">
+      <h1>Welcome to Avicii's Pizza</h1>
+    </div>
+    <div id="begin-order">
+      <h2>Let's get started.</h2>
+      <h3>Enter your name, phone number, and whether you'll be picking up your order or delivering. Then, click the Start Order button to start adding pizzas to your order.</h3>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-name">Enter your name</span>
+        </div>
+        <input type="text" name="cx-name" id="cx-name" class="form-control" aria-label="cx-name" aria-describedby="inputGroup-sizing-name">
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-name">Enter your phone number</span>
+        </div>
+        <input type="tel" name="cx-tel" id="cx-tel" class="form-control" aria-label="cx-tel" aria-describedby="inputGroup-sizing-tel">
+      </div>
+      <div id="order-start" class="btn btn-primary">Start Order</div>
+    </div>
+
   </div>
 </body>
 </html>

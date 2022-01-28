@@ -1,0 +1,9 @@
+#order-start {
+  display: flex;
+  justify-content: center;
+}
+
+.input-group-prepend {
+  display: inline-block;
+  min-width: 50%;
+}
