@@ -36,7 +36,11 @@ The following software tools were used to develop this page:
 ## Testing
 The following tests were conducted to focus development and practice test-driven development.
 
-#### 
+#### Describe: Topping
+Test: "It will create an object "Topping" that has a name, price, and vegan status."
+Code: `let pepperoni = new Topping("pepperoni", meatPrice, false);`
+`console.log(pepperoni);`
+Expected output `"Topping {name: "pepperoni", price: 1, isVegan: false}"`
 
 ## Acknowledgements
 
