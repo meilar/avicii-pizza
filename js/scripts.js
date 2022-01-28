@@ -34,6 +34,10 @@ Pizza.prototype.addTopping = function(newTopping) {
   this.price = this.price + newTopping.price;
 }
 
+Pizza.prototype.removeTopping = function(toppingId) {
+  delete this.toppings[toppingId - 1];
+}
+
 function Pizza(size) {
   this.id = assignId(false);
   this.size = size;
