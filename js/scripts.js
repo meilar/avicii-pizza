@@ -2,6 +2,8 @@ let meatPrice = 1;
 let toppingId = 0;
 let pizzaId = 100
 
+// utility logic
+
 function assignId(isTopping) {
   if (isTopping) {
     ++toppingId;
@@ -28,6 +30,11 @@ Basket.prototype.addPizza = function(newPizza) {
   this.orderTotal = this.orderTotal + newPizza.price;
 }
 
+Basket.prototype.removeTopping = function(pizzaId) {
+  let pizzaPrice = this.pizzas[pizzaId-101].price;
+  this.price = this.price - pizzaPrice;
+  delete this.pizzas[pizzaId - 101];
+}
 
 // pizza logic
 

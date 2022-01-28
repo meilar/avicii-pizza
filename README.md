@@ -116,6 +116,17 @@ newBasket;
 ```
 expected output: `Basket {name: 'Matt', phone: '555-5555', isDelivery: false, pizzas: Array(1), orderTotal: 13}`
 
+#### Describe: Basket.prototype.removePizza();
+Test: "It will remove a pizza from the basket's pizza array and update price."
+code: 
+```
+let newBasket = new Basket("Matt", "555-5555", false);
+newBasket.addPizza(newPizza);
+newBasket.removePizza(101);
+newBasket;
+```
+expected output: `Basket {name: 'Matt', phone: '555-5555', isDelivery: false, pizzas: Array(0), orderTotal: 0}`
+
 ## Acknowledgements
 
 Thank you to my partner, Alex, for support in all ways. Thank you to my parents for encouraging technology exploration, even when resources were scarce. Thank you to the Kohlenberg Foundation for the delicious sourdough bread and BBQ.
