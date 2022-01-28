@@ -1,18 +1,6 @@
+// testing code
 let meatPrice = 1;
-let toppingId = 0;
-let pizzaId = 100
 
-// utility logic
-
-function assignId(isTopping) {
-  if (isTopping) {
-    ++toppingId;
-    return toppingId;
-  } else {
-    ++pizzaId;
-    return pizzaId;
-  }
-}
 
 // basket logic
 
@@ -20,40 +8,29 @@ function Basket(name, phone, isDelivery) {
   this.name = name;
   this.phone = phone;
   this.isDelivery = isDelivery;
-  this.pizzas = [];
+  this.pizzas = {};
   this.orderTotal = 0;
+  this.pizzaId = 0
 }
 
 Basket.prototype.addPizza = function(newPizza) {
-  newPizza.id = assignId(false);
-  this.pizzas.push(newPizza);
+  ++this.pizzaId
+  newPizza.Id = this.pizzaId;
+  this.pizzas[newPizza.Id] = newPizza;
   this.orderTotal = this.orderTotal + newPizza.price;
 }
 
-Basket.prototype.removeTopping = function(pizzaId) {
-  let pizzaPrice = this.pizzas[pizzaId-101].price;
-  this.price = this.price - pizzaPrice;
-  delete this.pizzas[pizzaId - 101];
+Basket.prototype.removePizza = function(pizzaId) {
+  this.price = this.price - this.pizzas[pizzaId]
+  delete this.pizzas[pizzaId];
 }
 
 // pizza logic
 
-Pizza.prototype.addTopping = function(newTopping) {
-  newTopping.id = assignId(true);
-  this.toppings.push(newTopping);
-  this.price = this.price + newTopping.price;
-}
-
-Pizza.prototype.removeTopping = function(toppingId) {
-  let toppingPrice = this.toppings[toppingId-1].price;
-  this.price = this.price - toppingPrice;
-  delete this.toppings[toppingId - 1];
-}
-
 function Pizza(size) {
-  this.id = assignId(false);
+  this.toppingId = 0;
   this.size = size;
-  this.toppings = [];
+  this.toppings = {};
   if (size === "sm") {
     this.price = 8;
   } else if (size === "md") {
@@ -65,6 +42,18 @@ function Pizza(size) {
   }
 }
 
+Pizza.prototype.addTopping = function(newTopping) {
+  ++this.toppingId
+  newTopping.id = this.toppingId;
+  this.toppings[newTopping.id] = newTopping;
+  this.price = this.price + newTopping.price;
+}
+
+Pizza.prototype.removeTopping = function(toppingId) {
+  let toppingPrice = this.toppings[toppingId-1].price;
+  this.price = this.price - toppingPrice;
+  delete this.toppings[toppingId - 1];
+}
 
 // topping logic
 
@@ -74,7 +63,5 @@ function Topping(name, price, isVegan) {
   this.isVegan = isVegan;
 }
 
-// testing code
 let pepperoni = new Topping("pepperoni", meatPrice, false);
 let newPizza = new Pizza("lg");
-newPizza.addTopping(pepperoni);
