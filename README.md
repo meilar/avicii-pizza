@@ -96,6 +96,16 @@ newPizza;
 ```
 expected output: `Pizza {id: 101, size: 'lg', toppings: Array(0), price: 13}`
 
+Test: "It will update Pizza price before removing selected topping."
+code: 
+```
+let newPizza = new Pizza("lg");
+newPizza.addTopping(pepperoni);
+newPizza.removeTopping(1);
+newPizza;
+```
+expected output: `Pizza {id: 101, size: 'lg', toppings: Array(0), price: 12}`
+
 ## Acknowledgements
 
 Thank you to my partner, Alex, for support in all ways. Thank you to my parents for encouraging technology exploration, even when resources were scarce. Thank you to the Kohlenberg Foundation for the delicious sourdough bread and BBQ.
