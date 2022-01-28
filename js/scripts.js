@@ -31,6 +31,7 @@ function Basket(name, phone, isDelivery) {
 Pizza.prototype.addTopping = function(newTopping) {
   newTopping.id = assignId(true);
   this.toppings.push(newTopping);
+  this.price = this.price + newTopping.price;
 }
 
 function Pizza(size) {

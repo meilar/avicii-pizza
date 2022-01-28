@@ -76,14 +76,14 @@ newPizza;
 ```
 expected output: `Pizza {id: 101, size: 'lg', toppings: Array(1), price: 12}`
 
-Test: "It will add a topping to the pizza's topping array."
+Test: "It will update pizza price when topping is added."
 code: 
 ```
 let newPizza = new Pizza("lg");
 newPizza.addTopping(pepperoni);
 newPizza;
 ```
-expected output: `Pizza {id: 101, size: 'lg', toppings: Array(1), price: 12}`
+expected output: `Pizza {id: 101, size: 'lg', toppings: Array(1), price: 13}`
 
 ## Acknowledgements
 
