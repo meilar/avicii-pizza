@@ -2,8 +2,6 @@ let meatPrice = 1;
 let toppingId = 0;
 let pizzaId = 100
 
-let pepperoni = new Topping("pepperoni", meatPrice, false);
-
 function assignId(isTopping) {
   if (isTopping) {
     ++toppingId;
@@ -24,6 +22,11 @@ function Basket(name, phone, isDelivery) {
   this.orderTotal = 0;
 }
 
+Basket.prototype.addPizza = function(newPizza) {
+  newPizza.id = assignId(false);
+  this.pizzas.push(newPizza);
+  this.orderTotal = this.orderTotal + newPizza.price;
+}
 
 
 // pizza logic
@@ -63,3 +66,8 @@ function Topping(name, price, isVegan) {
   this.price = price;
   this.isVegan = isVegan;
 }
+
+// testing code
+let pepperoni = new Topping("pepperoni", meatPrice, false);
+let newPizza = new Pizza("lg");
+newPizza.addTopping(pepperoni);

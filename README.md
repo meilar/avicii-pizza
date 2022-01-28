@@ -106,6 +106,16 @@ newPizza;
 ```
 expected output: `Pizza {id: 101, size: 'lg', toppings: Array(0), price: 12}`
 
+#### Describe: Basket.prototype.addPizza();
+Test: "It will add a pizza to the basket's pizza array and update price."
+code: 
+```
+let newBasket = new Basket("Matt", "555-5555", false);
+newBasket.addPizza(newPizza);
+newBasket;
+```
+expected output: `Basket {name: 'Matt', phone: '555-5555', isDelivery: false, pizzas: Array(1), orderTotal: 13}`
+
 ## Acknowledgements
 
 Thank you to my partner, Alex, for support in all ways. Thank you to my parents for encouraging technology exploration, even when resources were scarce. Thank you to the Kohlenberg Foundation for the delicious sourdough bread and BBQ.
