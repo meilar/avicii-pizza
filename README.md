@@ -36,11 +36,24 @@ The following software tools were used to develop this page:
 ## Testing
 The following tests were conducted to focus development and practice test-driven development.
 
-#### Describe: Topping
+#### Describe: Topping()
 Test: "It will create an object "Topping" that has a name, price, and vegan status."
 Code: `let pepperoni = new Topping("pepperoni", meatPrice, false);`
 `console.log(pepperoni);`
 Expected output `"Topping {name: "pepperoni", price: 1, isVegan: false}"`
+
+#### Describe: assignId()
+Test: "It will assign a 3 digit ID counting from 100 to pizzas and an id counting from 1 to toppings."
+Code: `assignId(true);`
+Expected output: `1`
+code: `assignId(false);`
+Expected output: `101` 
+
+#### Describe: Pizza()
+Test: "It will create an object "Pizza" that has an ID, size, and toppings."
+Code: `let pizza1 = new Pizza(sm);`
+`console.log(pizza);`
+Expected output `"Pizza {id: "101", size: "sm", toppings: []}"`
 
 ## Acknowledgements
 
