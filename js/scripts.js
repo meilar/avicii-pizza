@@ -2,6 +2,8 @@ let meatPrice = 1;
 let toppingId = 0;
 let pizzaId = 100
 
+let pepperoni = new Topping("pepperoni", meatPrice, false);
+
 function assignId(isTopping) {
   if (isTopping) {
     ++toppingId;
@@ -25,6 +27,11 @@ function Basket(name, phone, isDelivery) {
 
 
 // pizza logic
+
+Pizza.prototype.addTopping = function(newTopping) {
+  newTopping.id = assignId(true);
+  this.toppings.push(newTopping);
+}
 
 function Pizza(size) {
   this.id = assignId(false);

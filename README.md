@@ -66,6 +66,25 @@ Code: `let testBasket = new Basket("Matt", "503-555-5555", false);`
 `testBasket;`
 Expected output `"Basket {name: "Matt", phone: "503-555-5555", isDelivery: false, pizzas: Array(0), orderTotal: 0}"`
 
+#### Describe: Pizza.prototype.addTopping();
+Test: "It will add a topping to the pizza's topping array."
+code: 
+```
+let newPizza = new Pizza("lg");
+newPizza.addTopping(pepperoni);
+newPizza;
+```
+expected output: `Pizza {id: 101, size: 'lg', toppings: Array(1), price: 12}`
+
+Test: "It will add a topping to the pizza's topping array."
+code: 
+```
+let newPizza = new Pizza("lg");
+newPizza.addTopping(pepperoni);
+newPizza;
+```
+expected output: `Pizza {id: 101, size: 'lg', toppings: Array(1), price: 12}`
+
 ## Acknowledgements
 
 Thank you to my partner, Alex, for support in all ways. Thank you to my parents for encouraging technology exploration, even when resources were scarce. Thank you to the Kohlenberg Foundation for the delicious sourdough bread and BBQ.
