@@ -149,8 +149,6 @@ function refreshBasket() {
     $("#pizza-list").append("<li class='list-group-item' id='" + pizza.Id + "'>" + outputText + "</li>");
   })
 
-
-
   $("#order-total-amt").empty();
   $("#order-total-amt").text(userBasket.orderTotal);
 }
