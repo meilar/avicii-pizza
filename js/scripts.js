@@ -30,7 +30,8 @@ Basket.prototype.addPizza = function(newPizza) {
 }
 
 Basket.prototype.removePizza = function(pizzaId) {
-  this.price = this.price - this.pizzas[pizzaId]
+  let pizza = this.retrievePizza(pizzaId);
+  this.orderTotal = this.orderTotal - pizza.price;
   delete this.pizzas[pizzaId];
 }
 
@@ -65,6 +66,13 @@ Pizza.prototype.addTopping = function(newTopping) {
   this.price = this.price + newTopping.price;
 }
 
+Pizza.prototype.retrieveTopping = function(toppingId) {
+  if (this.toppings[toppingId] != undefined) {
+    return this.toppings[toppingId];
+  }
+  return false;
+}
+
 Pizza.prototype.removeTopping = function(toppingId) {
   let toppingPrice = this.toppings[toppingId-1].price;
   this.price = this.price - toppingPrice;
@@ -82,6 +90,12 @@ function Topping(name, price, isVegan) {
 // UI Logic
 
 let userBasket = new Basket("","", false);
+
+function attachListeners() {
+  $("ul#pizza-list").on("click", "li", function() {
+    removeFromBasket(this.id)
+  });
+}
 
 function startOrder(name, tel, delivery) {
   userBasket.name = name;
@@ -119,7 +133,32 @@ function getToppings() {
 }
 
 function removeFromBasket(id) {
+  let removeArr = id.split("-");
+  let removeId = removeArr[1];
+  userBasket.removePizza(removeId);
+  refreshBasket();
+}
 
+function listPizzas() {
+
+  $("#pizza-list").empty();
+
+  pizzaArray = Object.keys(userBasket.pizzas)
+  pizzaArray.forEach(function (pizzaKey) {
+    let pizza = userBasket.retrievePizza(pizzaKey);
+    
+    toppingKeys = Object.keys(pizza.toppings);
+    toppingsToList = [];    
+    toppingKeys.forEach(function (toppingId){
+      let topping = pizza.retrieveTopping(toppingId);
+      console.log(topping);
+      toppingsToList.push(topping.name);
+    });
+    console.log("topping list is " + toppingsToList);
+    toppingList = toppingsToList.join(", ");
+    let outputText = "$" + pizza.price + ".00 : 1 " + pizza.size + " pizza with " + toppingList;
+    $("#pizza-list").append("<li class='list-group-item float-right' id='pizza-" + pizza.Id + "'><div class='btn btn-danger remove-btn'>Remove</div>" + outputText + "</li>");
+  })
 }
 
 function refreshBasket() {
@@ -136,26 +175,15 @@ function refreshBasket() {
   $("#checkout-delivery").empty();
   $("#checkout-delivery").text(deliveryText);
 
-  $("#pizza-list").empty();
-  pizzaArray = Object.keys(userBasket.pizzas)
-  console.log(pizzaArray);
-  pizzaArray.forEach(function (pizzaKey) {
-    let pizza = userBasket.retrievePizza(pizzaKey);
-    console.log(pizza);
-    toppingKeys = Object.keys(pizza.toppings);
-    console.log(toppingKeys);
-    toppingList = toppingArray.join(", ");
-    let outputText = "1 " + pizza.size + "pizza with " + toppingList + "and cheese."
-    $("#pizza-list").append("<li class='list-group-item' id='" + pizza.Id + "'>" + outputText + "</li>");
-  })
-
+  listPizzas();
+ 
   $("#order-total-amt").empty();
   $("#order-total-amt").text(userBasket.orderTotal);
 }
 
 $(function() {
 
-
+  attachListeners();
 
   $("#order-start").click(function() {
 
@@ -183,7 +211,7 @@ $(function() {
 
     userBasket.addPizza(newPizza);
     refreshBasket();
-
+    document.getElementById('pizza-form').reset();
     $("#checkout").show();
   })
 

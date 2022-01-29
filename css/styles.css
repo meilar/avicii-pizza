@@ -11,3 +11,7 @@
 .hidden {
   display: none;
 }
+
+.remove-btn {
+  margin-right: 10px;
+}
