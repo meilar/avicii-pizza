@@ -4,6 +4,12 @@ let meatPrice = 4;
 let vegPrice = 2;
 let premPrice = 8;
 
+let pepperoni = new Topping("Pepperoni", meatPrice, false);
+let sausage = new Topping("Sausage", meatPrice, false);
+let mushrooms = new Topping("Mushroom", vegPrice, true);
+let onions = new Topping("Onions", meatPrice, true);
+let tomatoes = new Topping("Sun Dried Tomatoes", premPrice, true);
+let sardines = new Topping("Sardines", premPrice, false);
 
 // basket logic
 
@@ -116,14 +122,19 @@ $(function() {
     let userTel = $("#cx-tel").val();
     let userIsDelivery = $("#inputGroupSelect01").val();
 
-    console.log(userTel);
-
     startOrder(userName, userTel, userIsDelivery);
 
     $("#begin-order").hide();
     $("#pizza-order").show();
   })
   $("#add-btn").click(function() {
+
+    let pizzaSize = $("#pizza-size").val();
+
+    let newPizza = new Pizza(pizzaSize);
+
+    newPizza.
+
     $("#checkout").show();
   })
   $("#clear-btn").click(function() {
