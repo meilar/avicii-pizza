@@ -34,6 +34,13 @@ Basket.prototype.removePizza = function(pizzaId) {
   delete this.pizzas[pizzaId];
 }
 
+Basket.prototype.retrievePizza = function(pizzaId) {
+  if (this.pizzas[pizzaId] != undefined) {
+    return this.pizzas[pizzaId];
+  }
+  return false;
+}
+
 // pizza logic
 
 function Pizza(size) {
@@ -74,20 +81,41 @@ function Topping(name, price, isVegan) {
 
 // UI Logic
 
-let userBasket = new Basket("","", true);
+let userBasket = new Basket("","", false);
 
 function startOrder(name, tel, delivery) {
   userBasket.name = name;
   userBasket.phone = tel;
   if (delivery === 1) {
-    userBasket.isDelivery = true;
-    } else {
     userBasket.isDelivery = false;
+    } else {
+    userBasket.isDelivery = true;
     }
 }
 
-function addToBasket() {
-  refreshBasket();
+function getToppings() {
+  toppingArray = [];
+
+  if ($("#top-pep").prop("checked") == true) {
+    toppingArray.push(pepperoni);
+  }
+  if ($("#top-saus").prop("checked") == true) {
+    toppingArray.push(sausage);
+  }
+  if ($("#top-sard").prop("checked") == true) {
+    toppingArray.push(sardines);
+  }
+  if ($("#top-mush").prop("checked") == true) {
+    toppingArray.push(mushrooms);
+  }
+  if ($("#top-onion").prop("checked") == true) {
+    toppingArray.push(onions);
+  }
+  if ($("#top-tom").prop("checked") == true) {
+    toppingArray.push(tomatoes);
+  }
+
+  return toppingArray;
 }
 
 function removeFromBasket(id) {
@@ -108,7 +136,22 @@ function refreshBasket() {
   $("#checkout-delivery").empty();
   $("#checkout-delivery").text(deliveryText);
 
-  $("#order-total").empty();
+  $("#pizza-list").empty();
+  pizzaArray = Object.keys(userBasket.pizzas)
+  console.log(pizzaArray);
+  pizzaArray.forEach(function (pizzaKey) {
+    let pizza = userBasket.retrievePizza(pizzaKey);
+    console.log(pizza);
+    toppingKeys = Object.keys(pizza.toppings);
+    console.log(toppingKeys);
+    toppingList = toppingArray.join(", ");
+    let outputText = "1 " + pizza.size + "pizza with " + toppingList + "and cheese."
+    $("#pizza-list").append("<li class='list-group-item' id='" + pizza.Id + "'>" + outputText + "</li>");
+  })
+
+
+
+  $("#order-total-amt").empty();
   $("#order-total-amt").text(userBasket.orderTotal);
 }
 
@@ -127,24 +170,35 @@ $(function() {
     $("#begin-order").hide();
     $("#pizza-order").show();
   })
+  
   $("#add-btn").click(function() {
 
     let pizzaSize = $("#pizza-size").val();
 
     let newPizza = new Pizza(pizzaSize);
 
-    newPizza.
+    let toppingArray = getToppings()
+
+    toppingArray.forEach( function(topping) {
+      newPizza.addTopping(topping);
+    })
+
+    userBasket.addPizza(newPizza);
+    refreshBasket();
 
     $("#checkout").show();
   })
+
   $("#clear-btn").click(function() {
-    alert("clear button clicked");
+    document.getElementById('pizza-form').reset();
   })
+  
   $("#order-finish").click(function() {
     $("#pizza-order").hide();
     $("#checkout").hide();
     $("#thank-you").show();
   })
+  
   $("#start-over").click(function() {
     location.reload(true);
   })
