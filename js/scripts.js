@@ -68,8 +68,20 @@ function Topping(name, price, isVegan) {
 
 // UI Logic
 
-function addToBasket() {
+let userBasket = new Basket("","", true);
 
+function startOrder(name, tel, delivery) {
+  userBasket.name = name;
+  userBasket.phone = tel;
+  if (delivery === 1) {
+    userBasket.isDelivery = true;
+    } else {
+    userBasket.isDelivery = false;
+    }
+}
+
+function addToBasket() {
+  refreshBasket();
 }
 
 function removeFromBasket(id) {
@@ -77,11 +89,37 @@ function removeFromBasket(id) {
 }
 
 function refreshBasket() {
+  if (userBasket.isDelivery) {
+    deliveryText = "This order will be delivered 60-90 minutes after checkout."
+  } else {
+    deliveryText = "This order will be available for pickup 45-60 minutes after checkout."
+  }
 
+  $("#checkout-name").empty();
+  $("#checkout-name").text(userBasket.name);
+  $("#checkout-tel").empty();
+  $("#checkout-tel").text(userBasket.phone);
+  $("#checkout-delivery").empty();
+  $("#checkout-delivery").text(deliveryText);
+
+  $("#order-total").empty();
+  $("#order-total-amt").text(userBasket.orderTotal);
 }
 
 $(function() {
+
+
+
   $("#order-start").click(function() {
+
+    let userName = $("#cx-name").val();
+    let userTel = $("#cx-tel").val();
+    let userIsDelivery = $("#inputGroupSelect01").val();
+
+    console.log(userTel);
+
+    startOrder(userName, userTel, userIsDelivery);
+
     $("#begin-order").hide();
     $("#pizza-order").show();
   })
