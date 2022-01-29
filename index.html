@@ -11,108 +11,119 @@
 </head>
 <body>
   <div class="container">
-    <div id="intro">
-      <h1>Welcome to Avicii's Pizza</h1>
-    </div>
-    <div id="begin-order">
-      <h2>Let's get started.</h2>
-      <h3>Enter your name, phone number, and whether you'll be picking up your order or delivering. Then, click the Start Order button to start adding pizzas to your order.</h3>
-      <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <span class="input-group-text" id="inputGroup-sizing-name">Enter your name</span>
-        </div>
-        <input type="text" name="cx-name" id="cx-name" class="form-control" aria-label="cx-name" aria-describedby="inputGroup-sizing-name">
+    <div class="row justify-content-md-center" id="intro">
+      <div class="col-md-8">
+        <h1>Welcome to Avicii's Pizza</h1>
+        <img src="img/Avicii.jpg" class="float-left" alt="picture of Avicii with a mustache">
+        <p>"Hi!, my name is Tim, but you can call me Avicii. I've headlined festivals and gotten the molly sweats around the world, from the sands of Black Rock City to the sands of Ibiza to the... wow, I go to a lot of places with sand!</p>
+        <p>I'm proud to welcome you to my newest venture, Avicii's Pizza, where we serve PLUR: Pizza Like U Reallywanttoeat!</p>
       </div>
-      <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <span class="input-group-text" id="inputGroup-sizing-name">Enter your phone number</span>
-        </div>
-        <input type="text" name="cx-tel" id="cx-tel" class="form-control" aria-label="cx-tel" aria-describedby="inputGroup-sizing-tel">
-      </div>
-      <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <label class="input-group-text" for="inputGroupSelect01">Delivery Options</label>
-        </div>
-        <select class="custom-select" id="inputGroupSelect01">
-          <option selected>Choose...</option>
-          <option value="1">Pickup</option>
-          <option value="2">Delivery</option>
-        </select>
-      </div>
-      <div id="order-start" class="btn btn-primary">Start Order</div>
     </div>
-    <div class="hidden" id="pizza-order">
-      <h2>Build a pizza</h2>
-      <form id="pizza-form">
-        <select id="pizza-size" class="form-control">
-          <option>Select a size...</option>
-          <option value="sm">Small</option>
-          <option value="md">Medium</option>
-          <option value="lg">Large</option>
-          <option value="xl">Extra Large</option>
-        </select>
-        <div id="toppings">
-          <h4>Select your toppings</h4>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="Pepperoni" id="top-pep">
-            <label class="form-check-label" for="top-pep">
-              Pepperoni <span class=top-meat>(M)</span> 
-            </label>
+    <div class="row justify-content-md-center" id="begin-order">
+      <div class="col-md-8">
+        <h2>Let's get your order started.</h2>
+        <h3>Enter your name, phone number, and delivery option. Then, click Start Order.</h3>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-name">Name</span>
           </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="Sausage" id="top-saus">
-            <label class="form-check-label" for="top-saus">
-              Sausage <span class=top-meat>(M)</span> 
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="Sardines" id="top-sard">
-            <label class="form-check-label" for="top-sard">
-              Sardines <span class=top-prem>(P)</span> 
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="Mushrooms" id="top-mush">
-            <label class="form-check-label" for="top-mush">
-              Mushrooms <span class=top-veg>(V)</span> 
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="Onions" id="top-onion">
-            <label class="form-check-label" for="top-onion">
-              Red Onions <span class=top-veg>(V)</span> 
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="Tomatoes" id="top-tom">
-            <label class="form-check-label" for="top-tom">
-              Sun Dried Tomatoes <span class=top-prem>(P)</span> 
-            </label>
-          </div>
+          <input type="text" name="cx-name" id="cx-name" class="form-control" aria-label="cx-name" aria-describedby="inputGroup-sizing-name">
         </div>
-      </form>
-      <div id="add-btn" class="btn btn-primary">Add to order</div>
-      <div id="clear-btn" class="btn btn-danger">Clear selection</div>
-    </div>
-    <div id="checkout" class="hidden">
-      <div class="card" id="checkout-card">
-        <div id="checkout-info" class="card-header">
-          <p><span id="checkout-name"></span></p>
-          <p><span id="checkout-tel"></span></p>
-          <p><span id="checkout-delivery"></span></p>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-name">Phone</span>
+          </div>
+          <input type="text" name="cx-tel" id="cx-tel" class="form-control" aria-label="cx-tel" aria-describedby="inputGroup-sizing-tel">
         </div>
-        <ul id="pizza-list" class="list-group list-group-flush">
-          <li class="list-group-item">Cras justo odio</li>
-        </ul>
-        <div class="card-footer">
-          <p>Your order total is: <span id="order-total">$<span id="order-total-amt"></span>.00</span></p>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="inputGroupSelect01">Delivery Option</label>
+          </div>
+          <select class="custom-select" id="inputGroupSelect01">
+            <option value="1">Pickup</option>
+            <option value="2">Delivery</option>
+          </select>
         </div>
+        <div id="order-start" class="btn btn-dark">Start Order</div>
       </div>
-      <div id="order-finish" class="btn btn-primary">Checkout</div>
     </div>
-    <div id="thank-you" class="hidden">
-      <h2>Thank you for your order.</h2>
-      <div id="start-over" class="btn btn-primary">Start a new order</div>
+    <div class= "row justify-content-md-center hidden" id="pizza-order">
+      <div class="col-md-8">
+        <h2 class="form-spacing">Build a pizza</h2>
+        <form id="pizza-form">
+          <select id="pizza-size" class="form-control form-spacing">
+            <option value="sm">Small</option>
+            <option value="md">Medium</option>
+            <option value="lg">Large</option>
+            <option value="xl">Extra Large</option>
+          </select>
+          <div id="toppings" class="form-spacing">
+            <h4>Select your toppings</h4>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="Pepperoni" id="top-pep">
+              <label class="form-check-label" for="top-pep">
+                Pepperoni <span class=top-meat>(M)</span> 
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="Sausage" id="top-saus">
+              <label class="form-check-label" for="top-saus">
+                Sausage <span class=top-meat>(M)</span> 
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="Sardines" id="top-sard">
+              <label class="form-check-label" for="top-sard">
+                Sardines <span class=top-prem>(P)</span> 
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="Mushrooms" id="top-mush">
+              <label class="form-check-label" for="top-mush">
+                Mushrooms <span class=top-veg>(V)</span> 
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="Onions" id="top-onion">
+              <label class="form-check-label" for="top-onion">
+                Red Onions <span class=top-veg>(V)</span> 
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="Tomatoes" id="top-tom">
+              <label class="form-check-label" for="top-tom">
+                Sun Dried Tomatoes <span class=top-prem>(P)</span> 
+              </label>
+            </div>
+          </div>
+        </form>
+        <div id="add-btn" class="btn btn-dark">Add to order</div>
+        <div id="clear-btn" class="btn btn-light">Clear selection</div>
+      </div>
+    </div>
+    <div class="row justify-content-md-center hidden" id="checkout">
+      <div class="col-md-8">
+        <div class="card" id="checkout-card">
+          <div id="checkout-info" class="card-header">
+            <p><span id="checkout-name"></span></p>
+            <p><span id="checkout-tel"></span></p>
+            <p><span id="checkout-delivery"></span></p>
+          </div>
+          <ul id="pizza-list" class="list-group list-group-flush">
+            <li class="list-group-item">Cras justo odio</li>
+          </ul>
+          <div class="card-footer">
+            <p>Your order total is: <span id="order-total">$<span id="order-total-amt"></span>.00</span></p>
+          </div>
+        </div>
+        <div id="order-finish" class="btn btn-dark">Checkout</div>
+      </div>
+    </div>
+    <div id="thank-you" class="row justify-content-md-center hidden">
+      <div class="col-md-8">
+        <h2>Thank you for your order.</h2>
+        <div id="start-over" class="btn btn-primary">Start a new order</div>
+      </div>
     </div>
   </div>
 </body>

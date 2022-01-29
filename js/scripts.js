@@ -156,7 +156,7 @@ function listPizzas() {
     });
     console.log("topping list is " + toppingsToList);
     toppingList = toppingsToList.join(", ");
-    let outputText = "$" + pizza.price + ".00 : 1 " + pizza.size + " pizza with " + toppingList;
+    let outputText = "$" + pizza.price + ".00 : 1 " + pizza.size + " pizza with " + toppingList + " and cheese.";
     $("#pizza-list").append("<li class='list-group-item float-right' id='pizza-" + pizza.Id + "'><div class='btn btn-danger remove-btn'>Remove</div>" + outputText + "</li>");
   })
 }
@@ -193,8 +193,8 @@ $(function() {
 
     startOrder(userName, userTel, userIsDelivery);
 
-    $("#begin-order").hide();
-    $("#pizza-order").show();
+    $("#begin-order").addClass("hidden");
+    $("#pizza-order").removeClass("hidden");
   })
   
   $("#add-btn").click(function() {
@@ -212,7 +212,7 @@ $(function() {
     userBasket.addPizza(newPizza);
     refreshBasket();
     document.getElementById('pizza-form').reset();
-    $("#checkout").show();
+    $("#checkout").removeClass("hidden");
   })
 
   $("#clear-btn").click(function() {
@@ -220,12 +220,14 @@ $(function() {
   })
   
   $("#order-finish").click(function() {
-    $("#pizza-order").hide();
-    $("#checkout").hide();
-    $("#thank-you").show();
+    $("#pizza-order").addClass("hidden");
+    $("#checkout").addClass("hidden");
+    $("#intro").addClass("hidden");
+    $("#thank-you").removeClass("hidden");
   })
   
   $("#start-over").click(function() {
     location.reload(true);
   })
 });
+
