@@ -17,7 +17,7 @@ To view this webpage:
 1. Clone this repository to your local machine using the Terminal or Bash command `git clone https://github.com/meilar/pizza.git`.
 2. Open "index.html" in a CSS3 and HTML5-compliant browser such as Google Chrome, Mozilla Firefox, or Apple Safari.
 
-[Alternately, a hosted version of this pages is available to view on Github Pages.](https://meilar.github.io/pizza)
+[Alternately, a hosted version of this pages is available to view on Github Pages.](https://meilar.github.io/avicii-pizza)
 
 ## Technologies Used
 
