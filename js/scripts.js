@@ -4,12 +4,12 @@ let meatPrice = 4;
 let vegPrice = 2;
 let premPrice = 8;
 
-let pepperoni = new Topping("Pepperoni", meatPrice, false);
-let sausage = new Topping("Sausage", meatPrice, false);
-let mushrooms = new Topping("Mushroom", vegPrice, true);
-let onions = new Topping("Onions", meatPrice, true);
-let tomatoes = new Topping("Sun Dried Tomatoes", premPrice, true);
-let sardines = new Topping("Sardines", premPrice, false);
+let pepperoni = new Topping("pepperoni", meatPrice, false);
+let sausage = new Topping("sausage", meatPrice, false);
+let mushrooms = new Topping("mushroom", vegPrice, true);
+let onions = new Topping("onions", meatPrice, true);
+let tomatoes = new Topping("sun-dried tomatoes", premPrice, true);
+let sardines = new Topping("sardines", premPrice, false);
 
 // basket logic
 
@@ -109,7 +109,6 @@ function startOrder(name, tel, delivery) {
 
 function getToppings() {
   toppingArray = [];
-
   if ($("#top-pep").prop("checked") == true) {
     toppingArray.push(pepperoni);
   }
@@ -128,7 +127,6 @@ function getToppings() {
   if ($("#top-tom").prop("checked") == true) {
     toppingArray.push(tomatoes);
   }
-
   return toppingArray;
 }
 
@@ -140,24 +138,21 @@ function removeFromBasket(id) {
 }
 
 function listPizzas() {
-
   $("#pizza-list").empty();
-
   pizzaArray = Object.keys(userBasket.pizzas)
   pizzaArray.forEach(function (pizzaKey) {
-    let pizza = userBasket.retrievePizza(pizzaKey);
-    
+    let pizza = userBasket.retrievePizza(pizzaKey);   
     toppingKeys = Object.keys(pizza.toppings);
-    toppingsToList = [];    
+    toppingsToList = ["cheese"];    
     toppingKeys.forEach(function (toppingId){
       let topping = pizza.retrieveTopping(toppingId);
       console.log(topping);
-      toppingsToList.push(topping.name);
+      toppingsToList.unshift(topping.name);
     });
     console.log("topping list is " + toppingsToList);
     toppingList = toppingsToList.join(", ");
-    let outputText = "$" + pizza.price + ".00 : 1 " + pizza.size + " pizza with " + toppingList + " and cheese.";
-    $("#pizza-list").append("<li class='list-group-item float-right' id='pizza-" + pizza.Id + "'><div class='btn btn-danger remove-btn'>Remove</div>" + outputText + "</li>");
+    let outputText = "$" + pizza.price + ".00 : 1 " + pizza.size + " pizza with " + toppingList;
+    $("#pizza-list").append("<li class='list-group-item float-right' id='pizza-" + pizza.Id + "'><div class='row'><div class='col-4'><div class='btn btn-danger remove-btn'>Remove</div></div><div class='col-8'>" + outputText + "</div></li>");
   })
 }
 
@@ -167,48 +162,36 @@ function refreshBasket() {
   } else {
     deliveryText = "This order will be available for pickup 45-60 minutes after checkout."
   }
-
   $("#checkout-name").empty();
   $("#checkout-name").text(userBasket.name);
   $("#checkout-tel").empty();
   $("#checkout-tel").text(userBasket.phone);
   $("#checkout-delivery").empty();
   $("#checkout-delivery").text(deliveryText);
-
   listPizzas();
- 
   $("#order-total-amt").empty();
   $("#order-total-amt").text(userBasket.orderTotal);
 }
 
 $(function() {
-
   attachListeners();
 
   $("#order-start").click(function() {
-
     let userName = $("#cx-name").val();
     let userTel = $("#cx-tel").val();
     let userIsDelivery = $("#inputGroupSelect01").val();
-
     startOrder(userName, userTel, userIsDelivery);
-
     $("#begin-order").addClass("hidden");
     $("#pizza-order").removeClass("hidden");
   })
   
   $("#add-btn").click(function() {
-
     let pizzaSize = $("#pizza-size").val();
-
     let newPizza = new Pizza(pizzaSize);
-
     let toppingArray = getToppings()
-
     toppingArray.forEach( function(topping) {
       newPizza.addTopping(topping);
     })
-
     userBasket.addPizza(newPizza);
     refreshBasket();
     document.getElementById('pizza-form').reset();
@@ -228,6 +211,10 @@ $(function() {
   
   $("#start-over").click(function() {
     location.reload(true);
+  })
+
+  $("#video-btn").click(function() {
+    $("#video")[0].src += "?autoplay=1";
   })
 });
 

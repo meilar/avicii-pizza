@@ -6,6 +6,8 @@ body {
 , #eadbea 0%, #bc709e 50%, #a011e8 75%);
 background-repeat: no-repeat;
 background-attachment: fixed;
+font-family: 'Quicksand', sans-serif;
+font-size: large;
 }
 
 #intro img {
@@ -18,10 +20,16 @@ background-attachment: fixed;
 #intro h1 {
   margin-top: 10%;
   margin-bottom: 10%;
+  font-family: 'Megrim', cursive;
 }
 
 #intro p {
   font-size: larger;
+  text-align: justify;
+}
+
+#plur {
+  font-weight: bolder;
 }
 
 #begin-order h2, h3 {
@@ -30,24 +38,15 @@ background-attachment: fixed;
 
 .input-group-prepend {
   display: inline-block;
-  min-width: 50%;
+  min-width: 40%;
 }
 
 .hidden {
   display: none;
 }
 
-.remove-btn {
-  margin-right: 10px;
-}
-
 .form-spacing {
   margin-bottom: 5%;
-}
-
-.btn {
-  margin-top: 5%;
-  margin-right: 5%;
 }
 
 .col-md-8 {
@@ -57,10 +56,33 @@ background-attachment: fixed;
   margin-bottom: 2%
 }
 
+#pizza-order {
+  text-align: center;
+}
+
+#pizza-order form, p {
+  text-align: left;
+}
+
+#checkout {
+  text-align: center;
+}
+
 .card {
   margin: 0;
+  text-align: left;
 }
 
 #thank-you {
   text-align: center;
+}
+
+.btn {
+  margin-top: 5%;
+  margin-right:auto;
+  margin-left:auto;
+}
+
+.remove-btn {
+  margin-right: 10px;
 }

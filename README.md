@@ -3,6 +3,7 @@
 Matthew Eilar | [LinkedIn](https://www.linkedin.com/in/eilar-503/) | [email](mailto:<meilar@gmail.com>) | [website](www.mattheweilar.com)
 
 ## About this project
+![screenshot of project](./img/avicii_screenshot.jpeg)
  This (loving) tribute to the [Swedish DJ Avicii](https://en.wikipedia.org/wiki/Avicii) and the southern California pizza chain [Ameci's Pizza & Pasta](https://en.wikipedia.org/wiki/Avicii) was created to fulfill the requirements of my [Epicodus](www.epicodus.com) intermediate JavaScript code review project.
 
 ## Features

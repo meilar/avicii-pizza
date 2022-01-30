@@ -1,5 +1,4 @@
 <!doctype html>
-
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -8,21 +7,27 @@
   <script src="js/scripts.js"></script>
   <link rel="stylesheet" href="css/bootstrap.css">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Megrim&family=Monoton&family=Quicksand:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
   <div class="container">
     <div class="row justify-content-md-center" id="intro">
-      <div class="col-md-8">
-        <h1>Welcome to Avicii's Pizza</h1>
+      <div class="col-md-8 text-center">
+        <h1>Welcome to Avicii's Pizza | Est. 2011</h1>
         <img src="img/Avicii.jpg" class="float-left" alt="picture of Avicii with a mustache">
         <p>"Hi!, my name is Tim, but you can call me Avicii. I've headlined festivals and gotten the molly sweats around the world, from the sands of Black Rock City to the sands of Ibiza to the... wow, I go to a lot of places with sand!</p>
-        <p>I'm proud to welcome you to my newest venture, Avicii's Pizza, where we serve PLUR: Pizza Like U Reallywanttoeat!</p>
+        <p>I'm proud to welcome you to my newest venture, Avicii's Pizza, where we serve <span id="plur">PLUR: "Pizza Like U Reallywanttoeat!"</span></p>
+        <div id="video-btn" class="btn btn-light">
+          Play Theme Song
+          <iframe id="video" width="1" height="1" src="https://www.youtube.com/embed/U2abS9BalAI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
       </div>
     </div>
     <div class="row justify-content-md-center" id="begin-order">
-      <div class="col-md-8">
+      <div class="col-md-8 text-center">
         <h2>Let's get your order started.</h2>
-        <h3>Enter your name, phone number, and delivery option. Then, click Start Order.</h3>
         <div class="input-group mb-3">
           <div class="input-group-prepend">
             <span class="input-group-text" id="inputGroup-sizing-name">Name</span>
@@ -50,6 +55,8 @@
     <div class= "row justify-content-md-center hidden" id="pizza-order">
       <div class="col-md-8">
         <h2 class="form-spacing">Build a pizza</h2>
+        <p>Small cheese pizzas start at $10. +$2 medium +$4 large +$6 xtra large</p>
+        <p>+$2 (V) Vegetable toppings +$4 (M) Meat toppings +$8 (P) Premium toppings</p>
         <form id="pizza-form">
           <select id="pizza-size" class="form-control form-spacing">
             <option value="sm">Small</option>
@@ -110,7 +117,6 @@
             <p><span id="checkout-delivery"></span></p>
           </div>
           <ul id="pizza-list" class="list-group list-group-flush">
-            <li class="list-group-item">Cras justo odio</li>
           </ul>
           <div class="card-footer">
             <p>Your order total is: <span id="order-total">$<span id="order-total-amt"></span>.00</span></p>
@@ -122,6 +128,7 @@
     <div id="thank-you" class="row justify-content-md-center hidden">
       <div class="col-md-8">
         <h2>Thank you for your order.</h2>
+        <p>Enjoy the light show, enjoy the drop, we'll be there when you come down.</p>
         <div id="start-over" class="btn btn-primary">Start a new order</div>
       </div>
     </div>
